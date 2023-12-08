@@ -11,4 +11,7 @@ Rails.application.routes.draw do
       end
     end
   end  
+  get 'applications/:token/chats/:number/search/:query', to: 'messages#search', as: 'search_messages' 
 end
+
+

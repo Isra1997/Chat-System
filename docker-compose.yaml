@@ -27,7 +27,15 @@ services:
         links:
             - db
         environment:
-            DB_USER: root
+            DB_USER: user
             DB_NAME: app
             DB_PASSWORD: password
             DB_HOST: db
+            ELASTICSEARCH_URL: http://elasticsearch_api:9200 
+    elasticsearch_api:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        environment:
+            - discovery.type=single-node

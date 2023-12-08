@@ -32,6 +32,13 @@ class MessagesController < ApplicationController
                 render json: "Chat not found", status:  :not_found
             end
         end
+
+        # POST /application/:application_token/chats/:chat_number/messages
+        def search
+            query = params[:message]
+            results = Message.search(query, fields: [:message])
+            render json: results
+        end
     
         # PATCH/PUT /application/:application_token/chats/:chat_number/messages/:message_number
         def update
