@@ -8,8 +8,8 @@ gem "rails", "~> 7.0.2"
 
 gem 'composite_primary_keys', '~> 14.0', '>= 14.0.8'
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

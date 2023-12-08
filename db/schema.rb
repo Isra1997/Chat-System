@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_12_03_163147) do
-  create_table "applications", id: false, force: :cascade do |t|
+  create_table "applications", id: false, charset: "latin1", force: :cascade do |t|
     t.string "token"
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_163147) do
     t.integer "chats_count"
   end
 
-  create_table "chats", force: :cascade do |t|
+  create_table "chats", charset: "latin1", force: :cascade do |t|
     t.integer "number"
     t.string "token"
     t.datetime "created_at", null: false
@@ -28,13 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_163147) do
     t.index ["token"], name: "index_chats_on_token"
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "messages", charset: "latin1", force: :cascade do |t|
     t.integer "message_number"
-    t.integer "chat_id"
+    t.bigint "chat_id"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"number\", \"token\"", name: "index_messages_on_number_and_token"
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
