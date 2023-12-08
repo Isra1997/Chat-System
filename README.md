@@ -25,4 +25,4 @@ docker-compose up
 ```
 docker-compose down
 ```
-To test the application through Postman you can also use <a ref="">this</a> collection.
+To test the application through Postman you can also use [this](https://www.postman.com/altimetry-geoscientist-34714272/workspace/chat-system) collection.
