@@ -5,14 +5,14 @@ following diagram, we modeled the database tables and the relationships between 
 
 <img src="Org charts.png"/></img>
 
-#Prerequisites
+# Prerequisites
 
 To run your application ensure that is installed on your machine by running:
 ```
 docker --version
 ```
 
-#How to run and deploy the application
+# How to run and deploy the application
 1. Build the application by running:
 ```
  docker-compose build
