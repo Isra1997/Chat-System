@@ -3,30 +3,18 @@ class ChatsController < ApplicationController
 
     # GET /applications/:application_token/chats
     def index
-        @chats = Chat.where(token: params[:application_token])
-        if @chats.present?
-            render json: @chats
-        else
-            render json: "No chats for application token: "+ params[:application_token], status:  :not_found
-        end
+        @chats = Chat.all
+        render json: @chats
     end
 
     # GET  /applications/:application_token/chats/:chat_number
     def show
-        if @chat.present?
-            render json: @chat
-        else
-            render json: "No chats for application token: "+ params[:application_token] + " and chat number: " + params[:number], status:  :not_found
-        end
+        render json: @chat
     end
 
     # DELETE /applications/:application_token/chats/:chat_number
     def destroy
-        if @chat.present?
-            Chat.destroy(@chat[0].id)
-        else
-            render json: "No chats for application token: "+ params[:application_token] + " and chat number: " + params[:number], status:  :not_found
-        end
+        Chat.destroy(@chat[0].id)
     end
 
     # POST /applications/:application_token/chats
@@ -43,6 +31,8 @@ class ChatsController < ApplicationController
             render json: "App not found", status:  :not_found
         end
     end
+
+    # todo: UPDATE
     
     private
 
@@ -50,6 +40,7 @@ class ChatsController < ApplicationController
     def set_chat
         @chat = Chat.where(token: params[:application_token],
              number: params[:number])
+        p @chat
     end
 
 end
