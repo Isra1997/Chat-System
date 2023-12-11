@@ -26,3 +26,8 @@ docker-compose up
 docker-compose down
 ```
 To test the application through Postman you can also use [this](https://www.postman.com/altimetry-geoscientist-34714272/workspace/chat-system) collection.
+
+# Fixes
+The following fixes are available on the `fix-branch`:
+1. Message search endpoint
+2. Endpoint validations 
