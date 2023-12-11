@@ -35,8 +35,9 @@ class MessagesController < ApplicationController
 
         # POST /application/:application_token/chats/:chat_number/messages
         def search
-            query = params[:message]
-            results = Message.search(query, fields: [:message])
+            Message.reindex
+            query = params[:query]
+            results = Message.search(params[:query])
             render json: results
         end
     
